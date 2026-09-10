@@ -4,9 +4,9 @@
   "scripts": {
     "install:app": "npm --prefix kk-digital-studio install",
     "dev": "npm --prefix kk-digital-studio run dev",
+    "prebuild": "npm --prefix kk-digital-studio install --ignore-scripts",
     "build": "npm --prefix kk-digital-studio run build",
     "preview": "npm --prefix kk-digital-studio run preview",
-    "server": "npm --prefix kk-digital-studio run server",
-    "postinstall": "npm run install:app"
+    "server": "npm --prefix kk-digital-studio run server"
   }
 }
