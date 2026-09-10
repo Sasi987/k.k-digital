@@ -1,0 +1,12 @@
+{
+  "name": "kk-digital-studio-workspace",
+  "private": true,
+  "scripts": {
+    "install:app": "npm --prefix kk-digital-studio install",
+    "dev": "npm --prefix kk-digital-studio run dev",
+    "build": "npm --prefix kk-digital-studio run build",
+    "preview": "npm --prefix kk-digital-studio run preview",
+    "server": "npm --prefix kk-digital-studio run server",
+    "postinstall": "npm run install:app"
+  }
+}
