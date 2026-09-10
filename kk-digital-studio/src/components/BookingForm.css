@@ -1,0 +1,32 @@
+.booking { max-width: 760px; }
+.booking__grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 640px) {
+  .booking__grid { grid-template-columns: 1fr 1fr; }
+}
+.booking__form { display: flex; flex-direction: column; gap: 1rem; }
+.booking__submit { align-self: flex-start; margin-top: 0.5rem; }
+.booking__submit:disabled { opacity: 0.6; cursor: wait; }
+
+.booking__success {
+  background: var(--charcoal);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: clamp(2rem, 5vw, 3.5rem);
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  align-items: flex-start;
+}
+.booking__check {
+  width: 60px; height: 60px;
+  border-radius: 999px;
+  border: 1px solid var(--champagne);
+  color: var(--champagne);
+  display: grid; place-items: center;
+  font-size: 1.5rem;
+}
+.booking__success-cta { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 0.5rem; }

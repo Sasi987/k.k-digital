@@ -1,0 +1,225 @@
+/* ============================================
+   KK DIGITAL STUDIO — Global Styles
+   Ultra-premium, cinematic, luxury editorial
+   ============================================ */
+
+:root {
+  /* Palette */
+  --obsidian: #0a0a0b;
+  --charcoal: #161618;
+  --charcoal-2: #1e1e21;
+  --ivory: #f5f0e8;
+  --cream: #efe7da;
+  --champagne: #c8a96a;
+  --champagne-soft: #d9c193;
+  --gray: #9a958c;
+  --gray-soft: #c9c4bb;
+  --line: rgba(200, 169, 106, 0.22);
+  --line-soft: rgba(245, 240, 232, 0.1);
+  --overlay: rgba(10, 10, 11, 0.55);
+
+  /* Typography */
+  --font-display: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', 'Poppins', system-ui, sans-serif;
+
+  /* Spacing */
+  --section-pad: clamp(4rem, 10vw, 8rem);
+  --gutter: clamp(1.25rem, 4vw, 4rem);
+  --navbar-h: 76px;
+
+  /* Motion */
+  --ease-lux: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur: 0.7s;
+
+  /* Radius & shadow */
+  --radius: 4px;
+  --shadow-lift: 0 24px 60px -18px rgba(0, 0, 0, 0.6);
+}
+
+/* Reset */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: 300;
+  background: var(--obsidian);
+  color: var(--ivory);
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; background: none; border: none; color: inherit; }
+ul, ol { list-style: none; }
+input, select, textarea { font-family: inherit; }
+
+::selection { background: var(--champagne); color: var(--obsidian); }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--obsidian); }
+::-webkit-scrollbar-thumb { background: var(--charcoal-2); border-radius: 5px; }
+::-webkit-scrollbar-thumb:hover { background: var(--champagne); }
+
+/* Typography scale */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  line-height: 1.12;
+  letter-spacing: 0.01em;
+}
+
+.display-1 { font-size: clamp(2.6rem, 7vw, 5.4rem); }
+.display-2 { font-size: clamp(2.1rem, 5vw, 3.6rem); }
+.display-3 { font-size: clamp(1.6rem, 3.4vw, 2.4rem); }
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--champagne);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+.eyebrow::before {
+  content: '';
+  width: 2.4rem;
+  height: 1px;
+  background: var(--champagne);
+}
+
+.lead {
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
+  color: var(--gray-soft);
+  max-width: 56ch;
+}
+
+/* Layout helpers */
+.container {
+  width: min(100% - (var(--gutter) * 2), 1320px);
+  margin-inline: auto;
+}
+
+.section { padding-block: var(--section-pad); position: relative; }
+.section--dark { background: var(--charcoal); }
+
+.grid-2 { display: grid; gap: clamp(2rem, 5vw, 4.5rem); }
+@media (min-width: 900px) { .grid-2 { grid-template-columns: 1fr 1fr; align-items: center; } }
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  min-height: 48px;
+  padding: 0.85rem 2rem;
+  font-size: 0.74rem;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  border-radius: var(--radius);
+  transition: transform 0.35s var(--ease-lux), background 0.35s, color 0.35s,
+    border-color 0.35s, box-shadow 0.35s;
+  white-space: nowrap;
+}
+.btn:focus-visible { outline: 2px solid var(--champagne); outline-offset: 3px; }
+
+.btn--gold {
+  background: linear-gradient(135deg, var(--champagne), var(--champagne-soft));
+  color: var(--obsidian);
+}
+.btn--gold:hover { transform: translateY(-2px); box-shadow: 0 14px 34px -12px rgba(200, 169, 106, 0.55); }
+
+.btn--outline {
+  border: 1px solid var(--line);
+  color: var(--ivory);
+  background: transparent;
+}
+.btn--outline:hover { border-color: var(--champagne); color: var(--champagne); transform: translateY(-2px); }
+
+.btn--whatsapp {
+  background: #1faa53;
+  color: #fff;
+}
+.btn--whatsapp:hover { background: #23c25e; transform: translateY(-2px); box-shadow: 0 14px 34px -12px rgba(31, 170, 83, 0.5); }
+
+.btn--ghost {
+  color: var(--gray-soft);
+  padding-inline: 0.5rem;
+  letter-spacing: 0.18em;
+}
+.btn--ghost:hover { color: var(--champagne); }
+
+/* Form controls */
+.field { display: flex; flex-direction: column; gap: 0.45rem; }
+.field label {
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gray);
+}
+.field input, .field select, .field textarea {
+  background: var(--charcoal);
+  border: 1px solid var(--line-soft);
+  color: var(--ivory);
+  padding: 0.9rem 1rem;
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  min-height: 48px;
+  transition: border-color 0.3s;
+}
+.field textarea { min-height: 120px; resize: vertical; }
+.field input:focus, .field select:focus, .field textarea:focus {
+  outline: none;
+  border-color: var(--champagne);
+}
+.field .error-text { font-size: 0.75rem; color: #e08585; min-height: 1em; }
+.field.has-error input, .field.has-error select, .field.has-error textarea { border-color: #a04a4a; }
+
+/* Utility */
+.gold { color: var(--champagne); }
+.muted { color: var(--gray); }
+.center { text-align: center; }
+.center .eyebrow { justify-content: center; }
+.center .lead { margin-inline: auto; }
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  margin: -1px; padding: 0; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 2000;
+  background: var(--champagne);
+  color: var(--obsidian);
+  padding: 0.7rem 1.2rem;
+  border-radius: var(--radius);
+  transition: top 0.25s;
+}
+.skip-link:focus { top: 1rem; }
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

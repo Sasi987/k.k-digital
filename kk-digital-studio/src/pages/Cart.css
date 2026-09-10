@@ -1,0 +1,8 @@
+.cart-layout {
+  display: grid;
+  gap: 1.6rem;
+}
+@media (min-width: 960px) {
+  .cart-layout { grid-template-columns: 1.6fr 1fr; align-items: start; }
+}
+.cart-layout__items { display: flex; flex-direction: column; gap: 1rem; }
