@@ -23,7 +23,6 @@ export default function Footer() {
           <Link to="/about">About</Link>
           <Link to="/services">Services</Link>
           <Link to="/portfolio">Portfolio</Link>
-          <Link to="/gallery">Gallery</Link>
         </nav>
 
         <nav className="footer__col" aria-label="Studio">

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { waGeneral } from '../utils/whatsapp.js';
 import { WhatsAppIconLink } from '../utils/nav-icons.jsx';
 import { STUDIO_PHONE_TEL } from '../utils/whatsapp.js';
+import heroImage from '../assets/gallery/01.jpg.jpeg';
 import './Hero.css';
 
 const HERO_IMG =

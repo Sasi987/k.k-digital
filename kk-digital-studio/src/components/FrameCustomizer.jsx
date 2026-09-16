@@ -66,15 +66,10 @@ export default function FrameCustomizer({ frame }) {
             className="customizer__photo"
           />
         </div>
-        <p className="customizer__hint">
-          {photo ? 'Live preview with your photo' : 'Upload your photo to see a live preview'}
-        </p>
       </div>
 
       {/* Options */}
       <div className="customizer__options">
-        <PhotoUploader onPhoto={setPhoto} />
-
         <fieldset className="opt-group">
           <legend>Size</legend>
           <div className="opt-group__row">
@@ -139,6 +134,18 @@ export default function FrameCustomizer({ frame }) {
           </div>
         </div>
 
+        <PhotoUploader onPhoto={setPhoto} />
+
+        <p className="customizer__hint">
+          {photo ? 'Live preview with your photo' : 'Upload your photo to see a live preview'}
+        </p>
+
+        <div className="customizer__actions">
+          <a href={waHref} target="_blank" rel="noopener noreferrer" className="btn btn--whatsapp">
+            Enquire on WhatsApp
+          </a>
+        </div>
+
         <div className="customizer__total" aria-live="polite">
           <span>Total</span>
           <motion.strong
@@ -155,9 +162,6 @@ export default function FrameCustomizer({ frame }) {
           <button type="button" className="btn btn--gold" onClick={handleAdd}>
             {added ? '✓ Added to Cart' : 'Add to Cart'}
           </button>
-          <a href={waHref} target="_blank" rel="noopener noreferrer" className="btn btn--whatsapp">
-            Enquire on WhatsApp
-          </a>
         </div>
       </div>
     </div>

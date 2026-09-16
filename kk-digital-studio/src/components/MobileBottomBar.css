@@ -4,7 +4,7 @@
   z-index: 900;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  background: rgba(14, 14, 16, 0.92);
+  background: rgba(9, 28, 48, 0.92);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-top: 1px solid var(--line-soft);
@@ -45,5 +45,5 @@
 }
 /* Reserve space above bottom bar on mobile */
 @media (max-width: 767px) {
-  main { padding-bottom: 70px; }
+  main { padding-bottom: calc(76px + env(safe-area-inset-bottom)); }
 }

@@ -1,33 +1,558 @@
+/* ============================================================
+   KK DIGITAL STUDIO
+   PHOTO UPLOADER — FINAL MOBILE OVERLAP FIX
+   ============================================================ */
+
+.uploader {
+  position: relative;
+  z-index: 1;
+
+  display: block;
+
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+
+  margin: 0;
+
+  box-sizing: border-box;
+
+  isolation: isolate;
+}
+
+
+/* ------------------------------------------------------------
+   LABEL
+   ------------------------------------------------------------ */
+
+.uploader .opt-group__legend {
+  display: block;
+
+  width: 100%;
+  max-width: 100%;
+
+  margin: 0 0 12px;
+
+  color: #f5efe4;
+
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1.4;
+
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+
+/* ------------------------------------------------------------
+   DROP AREA
+   IMPORTANT:
+   NEVER POSITION THIS ABSOLUTELY
+   ------------------------------------------------------------ */
+
 .uploader__drop {
   position: relative;
-  border: 1px dashed var(--line);
-  border-radius: var(--radius);
-  transition: border-color 0.3s, background 0.3s;
+
+  display: block;
+
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+
+  min-height: 82px;
+
+  box-sizing: border-box;
+
+  margin: 0;
+
+  padding: 12px;
+
+  border: 1px solid rgba(218, 184, 115, 0.28);
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.065),
+      rgba(255, 255, 255, 0.018)
+    ),
+    #101012;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.055),
+    0 14px 35px rgba(0, 0, 0, 0.28);
+
+  overflow: hidden;
+
+  isolation: isolate;
+
+  transition:
+    border-color 250ms ease,
+    box-shadow 250ms ease,
+    transform 250ms ease;
 }
-.uploader__drop:hover { border-color: var(--champagne); background: rgba(200, 169, 106, 0.05); }
+
+
+.uploader__drop:hover {
+  border-color: rgba(229, 198, 133, 0.58);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.07),
+    0 18px 42px rgba(0, 0, 0, 0.34),
+    0 0 30px rgba(214, 180, 109, 0.05);
+
+  transform: translateY(-1px);
+}
+
+
+/* ------------------------------------------------------------
+   INPUT
+   ------------------------------------------------------------ */
+
+.uploader .sr-only {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+
+  padding: 0;
+  margin: -1px;
+
+  overflow: hidden;
+
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+
+  white-space: nowrap;
+
+  border: 0;
+}
+
+
+/* ------------------------------------------------------------
+   LABEL / CONTENT
+   ------------------------------------------------------------ */
+
 .uploader__label {
+  position: relative;
+  z-index: 2;
+
+  display: grid;
+
+  grid-template-columns: 46px minmax(0, 1fr);
+
+  align-items: center;
+
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+
+  box-sizing: border-box;
+
+  gap: 12px;
+
+  /*
+    Reserve space for the remove button.
+  */
+  padding: 3px 50px 3px 3px;
+
+  margin: 0;
+
+  color: #a7a198;
+
+  font-size: 0.84rem;
+  font-weight: 500;
+
+  line-height: 1.5;
+
+  cursor: pointer;
+
+  overflow: hidden;
+}
+
+
+/* ------------------------------------------------------------
+   ICON
+   ------------------------------------------------------------ */
+
+.uploader__icon {
+  position: relative;
+
   display: flex;
+
   align-items: center;
   justify-content: center;
-  gap: 0.7rem;
-  min-height: 84px;
-  padding: 1rem;
-  cursor: pointer;
-  font-size: 0.88rem;
-  color: var(--gray-soft);
-  text-align: center;
+
+  width: 46px;
+  height: 46px;
+
+  min-width: 46px;
+  min-height: 46px;
+
+  box-sizing: border-box;
+
+  border: 1px solid rgba(220, 184, 112, 0.28);
+
+  border-radius: 13px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(222, 185, 112, 0.15),
+      rgba(222, 185, 112, 0.035)
+    );
+
+  color: #efd291;
+
+  font-size: 1.05rem;
+
+  line-height: 1;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.07),
+    0 8px 18px rgba(0, 0, 0, 0.2);
+
+  transition:
+    transform 250ms ease,
+    border-color 250ms ease;
 }
-.uploader__label em { font-style: normal; color: var(--champagne); text-decoration: underline; }
-.uploader__icon { font-size: 1.1rem; color: var(--champagne); }
-.uploader__file { color: var(--ivory); word-break: break-all; }
+
+
+.uploader__drop:hover .uploader__icon {
+  transform: translateY(-2px);
+
+  border-color: rgba(239, 207, 146, 0.58);
+}
+
+
+/* ------------------------------------------------------------
+   TEXT
+   ------------------------------------------------------------ */
+
+.uploader__label > span:not(.uploader__icon) {
+  display: block;
+
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+
+  overflow: hidden;
+
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+
+/* ------------------------------------------------------------
+   FILE NAME
+   ------------------------------------------------------------ */
+
+.uploader__file {
+  display: block;
+
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+
+  color: #f3ede3;
+
+  font-size: 0.8rem;
+  font-weight: 600;
+
+  line-height: 1.45;
+
+  white-space: nowrap;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+}
+
+
+/* ------------------------------------------------------------
+   BROWSE
+   ------------------------------------------------------------ */
+
+.uploader__label em {
+  color: #efd291;
+
+  font-style: normal;
+  font-weight: 700;
+
+  white-space: nowrap;
+}
+
+
+/* ------------------------------------------------------------
+   CLEAR BUTTON
+   ------------------------------------------------------------ */
+
 .uploader__clear {
   position: absolute;
-  top: 6px; right: 6px;
-  width: 32px; height: 32px;
-  border-radius: 999px;
-  border: 1px solid var(--line-soft);
-  color: var(--gray);
+
+  z-index: 10;
+
+  top: 50%;
+  right: 12px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 38px;
+  height: 38px;
+
+  min-width: 38px;
+  min-height: 38px;
+
+  box-sizing: border-box;
+
+  padding: 0;
+  margin: 0;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  border-radius: 11px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.09),
+      rgba(255, 255, 255, 0.025)
+    );
+
+  color: #c8c1b7;
+
   font-size: 0.75rem;
-  transition: color 0.3s, border-color 0.3s;
+  font-weight: 700;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  transform: translateY(-50%);
+
+  transition:
+    transform 200ms ease,
+    border-color 200ms ease,
+    color 200ms ease,
+    background 200ms ease;
 }
-.uploader__clear:hover { color: #e08585; border-color: #a04a4a; }
+
+
+.uploader__clear:hover {
+  border-color: rgba(226, 151, 151, 0.55);
+
+  background: rgba(170, 70, 70, 0.13);
+
+  color: #f0aaaa;
+
+  transform: translateY(-50%) scale(1.05);
+}
+
+
+.uploader__clear:active {
+  transform: translateY(-50%) scale(0.94);
+}
+
+
+/* ------------------------------------------------------------
+   ERROR
+   ------------------------------------------------------------ */
+
+.uploader .error-text {
+  width: 100%;
+  max-width: 100%;
+
+  box-sizing: border-box;
+
+  margin: 9px 0 0;
+
+  padding: 9px 11px;
+
+  border-left: 2px solid rgba(225, 131, 131, 0.7);
+
+  border-radius: 0 8px 8px 0;
+
+  background: rgba(225, 131, 131, 0.055);
+
+  color: #e69a9a;
+
+  font-size: 0.73rem;
+  font-weight: 600;
+
+  line-height: 1.5;
+
+  overflow-wrap: anywhere;
+}
+
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media (max-width: 767px) {
+
+  .uploader {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .uploader__drop {
+    min-height: 76px;
+
+    padding: 9px;
+
+    border-radius: 15px;
+  }
+
+  .uploader__label {
+    grid-template-columns: 42px minmax(0, 1fr);
+
+    gap: 10px;
+
+    padding-right: 46px;
+
+    font-size: 0.76rem;
+  }
+
+  .uploader__icon {
+    width: 42px;
+    height: 42px;
+
+    min-width: 42px;
+    min-height: 42px;
+
+    border-radius: 11px;
+  }
+
+  .uploader__clear {
+    right: 9px;
+
+    width: 35px;
+    height: 35px;
+
+    min-width: 35px;
+    min-height: 35px;
+  }
+}
+
+
+/* ============================================================
+   SMALL MOBILE
+   ============================================================ */
+
+@media (max-width: 479px) {
+
+  .uploader__drop {
+    min-height: 70px;
+
+    padding: 8px;
+
+    border-radius: 14px;
+  }
+
+  .uploader__label {
+    grid-template-columns: 38px minmax(0, 1fr);
+
+    gap: 8px;
+
+    padding-right: 43px;
+
+    font-size: 0.72rem;
+  }
+
+  .uploader__icon {
+    width: 38px;
+    height: 38px;
+
+    min-width: 38px;
+    min-height: 38px;
+
+    border-radius: 10px;
+  }
+
+  .uploader__file {
+    font-size: 0.7rem;
+  }
+
+  .uploader__clear {
+    right: 7px;
+
+    width: 33px;
+    height: 33px;
+
+    min-width: 33px;
+    min-height: 33px;
+
+    border-radius: 9px;
+  }
+}
+
+
+/* ============================================================
+   320px SAFETY
+   ============================================================ */
+
+@media (max-width: 359px) {
+
+  .uploader__drop {
+    padding: 7px;
+
+    min-height: 66px;
+  }
+
+  .uploader__label {
+    grid-template-columns: 34px minmax(0, 1fr);
+
+    gap: 7px;
+
+    padding-right: 39px;
+
+    font-size: 0.68rem;
+  }
+
+  .uploader__icon {
+    width: 34px;
+    height: 34px;
+
+    min-width: 34px;
+    min-height: 34px;
+  }
+
+  .uploader__clear {
+    right: 6px;
+
+    width: 30px;
+    height: 30px;
+
+    min-width: 30px;
+    min-height: 30px;
+  }
+}
+
+
+/* ============================================================
+   ACCESSIBILITY
+   ============================================================ */
+
+.uploader .sr-only:focus-visible + .uploader__label {
+  outline: 2px solid #d9b975;
+  outline-offset: 4px;
+}
+
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .uploader *,
+  .uploader *::before,
+  .uploader *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}

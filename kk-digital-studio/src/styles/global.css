@@ -5,9 +5,9 @@
 
 :root {
   /* Palette */
-  --obsidian: #0a0a0b;
-  --charcoal: #161618;
-  --charcoal-2: #1e1e21;
+  --obsidian: #071426;
+  --charcoal: #0d2138;
+  --charcoal-2: #14304d;
   --ivory: #f5f0e8;
   --cream: #efe7da;
   --champagne: #c8a96a;
@@ -16,7 +16,7 @@
   --gray-soft: #c9c4bb;
   --line: rgba(200, 169, 106, 0.22);
   --line-soft: rgba(245, 240, 232, 0.1);
-  --overlay: rgba(10, 10, 11, 0.55);
+  --overlay: rgba(7, 20, 38, 0.55);
 
   /* Typography */
   --font-display: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
@@ -33,7 +33,7 @@
 
   /* Radius & shadow */
   --radius: 4px;
-  --shadow-lift: 0 24px 60px -18px rgba(0, 0, 0, 0.6);
+  --shadow-lift: 0 24px 60px -18px rgba(2, 10, 22, 0.6);
 }
 
 /* Reset */

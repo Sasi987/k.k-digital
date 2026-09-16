@@ -5,12 +5,12 @@ import Navbar from './components/Navbar.jsx';
 import Footer from './components/Footer.jsx';
 import MobileBottomBar from './components/MobileBottomBar.jsx';
 import WhatsAppButton from './components/WhatsAppButton.jsx';
+import ContentProtection from './components/ContentProtection/ContentProtection.jsx';
 
 const Home = lazy(() => import('./pages/Home.jsx'));
 const About = lazy(() => import('./pages/About.jsx'));
 const Services = lazy(() => import('./pages/Services.jsx'));
 const Portfolio = lazy(() => import('./pages/Portfolio.jsx'));
-const Gallery = lazy(() => import('./pages/Gallery.jsx'));
 const Wedding = lazy(() => import('./pages/Wedding.jsx'));
 const Portrait = lazy(() => import('./pages/Portrait.jsx'));
 const Packages = lazy(() => import('./pages/Packages.jsx'));
@@ -45,26 +45,27 @@ export default function App() {
       <Navbar />
       <ScrollToTop />
       <main id="main-content">
-        <Suspense fallback={<PageLoader />}>
-          <AnimatePresence mode="wait">
-            <Routes location={location} key={location.pathname}>
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/services" element={<Services />} />
-              <Route path="/portfolio" element={<Portfolio />} />
-              <Route path="/gallery" element={<Gallery />} />
-              <Route path="/wedding" element={<Wedding />} />
-              <Route path="/portrait" element={<Portrait />} />
-              <Route path="/packages" element={<Packages />} />
-              <Route path="/photo-frames" element={<PhotoFrames />} />
-              <Route path="/photo-frames/:id" element={<FrameProduct />} />
-              <Route path="/cart" element={<Cart />} />
-              <Route path="/booking" element={<Booking />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="*" element={<Home />} />
-            </Routes>
-          </AnimatePresence>
-        </Suspense>
+        <ContentProtection>
+          <Suspense fallback={<PageLoader />}>
+            <AnimatePresence mode="wait">
+              <Routes location={location} key={location.pathname}>
+                <Route path="/" element={<Home />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/services" element={<Services />} />
+                <Route path="/portfolio" element={<Portfolio />} />
+                <Route path="/wedding" element={<Wedding />} />
+                <Route path="/portrait" element={<Portrait />} />
+                <Route path="/packages" element={<Packages />} />
+                <Route path="/photo-frames" element={<PhotoFrames />} />
+                <Route path="/photo-frames/:id" element={<FrameProduct />} />
+                <Route path="/cart" element={<Cart />} />
+                <Route path="/booking" element={<Booking />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="*" element={<Home />} />
+              </Routes>
+            </AnimatePresence>
+          </Suspense>
+        </ContentProtection>
       </main>
       <Footer />
       <MobileBottomBar />

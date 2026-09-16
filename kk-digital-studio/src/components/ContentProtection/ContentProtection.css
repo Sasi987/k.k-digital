@@ -1,0 +1,67 @@
+.content-protection {
+  position: relative;
+}
+
+.content-protection img,
+.content-protection .portfolio-card,
+.content-protection .frame-card__media,
+.content-protection .page-hero__bg,
+.content-protection .hero__bg,
+.content-protection .lightbox__figure,
+.content-protection .content-protection__media {
+  -webkit-user-drag: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+.content-protection img {
+  pointer-events: auto;
+}
+
+.content-protection .content-protection__watermark {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(200, 169, 106, 0.05) 40%,
+    transparent 100%
+  );
+}
+
+.content-protection__watermark-text {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+  color: rgba(200, 169, 106, 0.16);
+  font-size: clamp(0.65rem, 0.9vw, 0.95rem);
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  font-weight: 600;
+  transform: rotate(-18deg);
+  white-space: nowrap;
+}
+
+.print-protection-message {
+  display: none;
+  padding: 1.5rem;
+  text-align: center;
+  color: var(--obsidian);
+  background: var(--ivory);
+  border: 1px solid var(--line);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+@media print {
+  .content-protection *:not(.print-protection-message) {
+    display: none !important;
+  }
+
+  .print-protection-message {
+    display: block !important;
+  }
+}

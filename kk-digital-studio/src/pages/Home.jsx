@@ -8,6 +8,7 @@ import PackageCard from '../components/PackageCard.jsx';
 import { SERVICES, PACKAGES } from '../data/packages.js';
 import { PORTFOLIO_ITEMS } from '../data/gallery.js';
 import { fadeUp, scaleReveal, stagger, viewportOnce } from '../utils/motion.js';
+import homeHero from '../assets/home-hero.jpg';
 import './Home.css';
 
 const STATS = [
@@ -16,8 +17,6 @@ const STATS = [
   { n: '40k+', label: 'Frames Delivered' },
   { n: '5.0', label: 'Client Rating' }
 ];
-
-const img = (id, w = 800, h = 1000) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&h=${h}&q=80`;
 
 export default function Home() {
   return (
@@ -48,9 +47,8 @@ export default function Home() {
             whileInView="visible"
             viewport={viewportOnce}
           >
-            <img src={img('photo-1519225421980-715cb0215aed')} alt="Elegant wedding table setting photographed editorially" loading="lazy" />
-            <img src={img('photo-1531746020798-e6953c6e8e04', 600, 750)} alt="Dramatic studio portrait" loading="lazy" className="home-intro__media-float" />
-          </motion.div>
+            <img src={homeHero} alt="KK Digital Studio wedding photography" loading="lazy" />
+            </motion.div>
         </div>
       </section>
 

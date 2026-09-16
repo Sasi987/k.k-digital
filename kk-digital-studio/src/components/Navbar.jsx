@@ -10,7 +10,6 @@ const LINKS = [
   { to: "/about", label: "About" },
   { to: "/services", label: "Services" },
   { to: "/portfolio", label: "Portfolio" },
-  { to: "/gallery", label: "Gallery" },
   { to: "/packages", label: "Packages" },
   { to: "/photo-frames", label: "Photo Frames" },
   { to: "/contact", label: "Contact" },
