@@ -12,6 +12,7 @@ const LINKS = [
   { to: "/portfolio", label: "Portfolio" },
   { to: "/packages", label: "Packages" },
   { to: "/photo-frames", label: "Photo Frames" },
+  { to: "/customized-products", label: "Customized Products" },
   { to: "/contact", label: "Contact" },
 ];
 

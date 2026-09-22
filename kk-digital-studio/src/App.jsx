@@ -15,6 +15,7 @@ const Wedding = lazy(() => import('./pages/Wedding.jsx'));
 const Portrait = lazy(() => import('./pages/Portrait.jsx'));
 const Packages = lazy(() => import('./pages/Packages.jsx'));
 const PhotoFrames = lazy(() => import('./pages/PhotoFrames.jsx'));
+const CustomizedProducts = lazy(() => import('./pages/CustomizedProducts.jsx'));
 const FrameProduct = lazy(() => import('./pages/FrameProduct.jsx'));
 const Cart = lazy(() => import('./pages/Cart.jsx'));
 const Booking = lazy(() => import('./pages/Booking.jsx'));
@@ -57,6 +58,7 @@ export default function App() {
                 <Route path="/portrait" element={<Portrait />} />
                 <Route path="/packages" element={<Packages />} />
                 <Route path="/photo-frames" element={<PhotoFrames />} />
+                <Route path="/customized-products" element={<CustomizedProducts />} />
                 <Route path="/photo-frames/:id" element={<FrameProduct />} />
                 <Route path="/cart" element={<Cart />} />
                 <Route path="/booking" element={<Booking />} />
